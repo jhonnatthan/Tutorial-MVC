@@ -1,10 +1,4 @@
-<?php 
-/** * Retorna o diretório das views */ 
-
-function viewsPath() { 
-	return BASE_PATH . DS . 'app' . DS . 'Views' . DS; 
-} 
-
+<?php
 /** * Converte datas entre os padrões ISO e brasileiro * Fonte: http://rberaldo.com.br/php-conversao-de-datas-formato-brasileiro-e-formato-iso/ */ 
 
 function dateConvert($date) { 

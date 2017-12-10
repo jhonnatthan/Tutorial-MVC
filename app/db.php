@@ -101,6 +101,10 @@
 			return ($sql) ? mysqli_affected_rows(self::$link) : false;
 		}
 
+		function getError() {
+		    return mysqli_error(self::$link);
+        }
+
 	}
 
 ?>
