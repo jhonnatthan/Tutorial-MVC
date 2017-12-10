@@ -1,0 +1,14 @@
+{
+    "name": "jhonnatthan/root",
+    "require": {
+        "slim/slim": "^3.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\" : "app/"
+        },
+        "files": [
+            "app/helpers.php"
+        ]
+    }
+}
