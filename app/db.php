@@ -9,7 +9,7 @@
 		static private $charset;
 		static private $link;
 
-		function __construct($database = "db_wkless", $host = "localhost", $username = "root", $password = "usbw", $charset = "utf8") {
+		function __construct($database = "db_dbo", $host = "localhost", $username = "root", $password = "usbw", $charset = "utf8") {
 			self::$host = $host;
 			self::$username = $username;
 			self::$password = $password;
