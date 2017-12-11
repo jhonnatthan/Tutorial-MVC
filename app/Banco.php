@@ -44,12 +44,12 @@
 			$numrows = mysqli_num_rows($sql);
 			
 			if($numrows > 0 ) {
-				while ($row = mysqli_fetch_row($sql)) {
+				while ($row = mysqli_fetch_assoc($sql)) {
 					$dados[] = $row;
 				}
 			}		
 			
-			return ($numrows > 0 && sql) ? $dados : false ;
+			return ($numrows > 0 && $sql) ? $dados : false ;
 		}
 
         static function insert($tabela, $dados, $id = false) {

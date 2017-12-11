@@ -2,7 +2,7 @@
 
 <a href="/add">Adicionar Usuário</a>
 
-<?php if (count($users) > 0): ?>
+<?php if ($users) { ?>
 
     <table width="50%" border="1" cellpadding="2" cellspacing="0">
 
@@ -18,7 +18,7 @@
         </thead>
 
         <tbody>
-            <?php foreach ($users as $user): ?>
+            <?php foreach ($users as $user) { ?>
                 <tr>
                     <td><?php echo $user['name']; ?></td>
                     <td><?php echo $user['email']; ?></td>
@@ -31,10 +31,10 @@
                            onclick="return confirm('Tem certeza de que deseja remover?');">Remover</a>
                     </td>
                 </tr>
-            <?php endforeach; ?>
+            <?php } ?>
         </tbody>
 
     </table>
-<?php else: ?>
+<?php } else { ?>
     Nenhum usuário cadastrado
-<?php endif; ?>
+<?php } ?>

@@ -20,6 +20,8 @@
 
         public static function save($name, $email, $gender, $birthdate) {
 
+            self::connect();
+
             if (empty($name) || empty($email) || empty($gender) || empty($birthdate)) {
                 echo "Volte e preencha todos os campos";
                 return false;
@@ -41,6 +43,8 @@
 
 
         public static function updateUser($id, $name, $email, $gender, $birthdate) {
+
+            self::connect();
 
             if (empty($name) || empty($email) || empty($gender) || empty($birthdate)) {
                 echo "Volte e preencha todos os campos";
@@ -64,6 +68,9 @@
 
 
         public static function remove($id) {
+
+            self::connect();
+
             if (empty($id)) {
                 echo "ID não informado";
                 exit;
