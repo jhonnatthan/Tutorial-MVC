@@ -7,6 +7,8 @@
 
         public static function selectAll($id = null) {
 
+            self::connect();
+
             $table = "users";
             $fields = array("id", "name", "email", "gender", "birthdate");
             $where = !empty($id) ? array("id" => $id) : null;

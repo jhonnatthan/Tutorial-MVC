@@ -9,7 +9,7 @@
 		static private $charset;
 		static private $link;
 
-		function __construct($database = "db_dbo", $host = "localhost", $username = "root", $password = "usbw", $charset = "utf8") {
+		static function connect($database = "db_dbo", $host = "localhost", $username = "root", $password = "usbw", $charset = "utf8") {
 			self::$host = $host;
 			self::$username = $username;
 			self::$password = $password;
@@ -18,13 +18,13 @@
 			self::$link = mysqli_connect(self::$host, self::$username, self::$password, self::$database) or die('Erro de conexão '.mysqli_error(self::$link));
 			mysqli_set_charset(self::$link, self::$charset);
 		}
-		
-		function __destruct() {
+
+		static function disconnect() {
 			mysqli_close(self::$link);
 		}
-		
-		function select($tabela, $campos = null, $argumentos = null, $agrupar = null, $havendo = null, $ordernar = null, $limite = null) {
-			$tabela = implode(', ', $tabela);
+
+		static function select($tabela, $campos = null, $argumentos = null, $agrupar = null, $havendo = null, $ordernar = null, $limite = null) {
+			$tabela = is_array($tabela) ? implode(', ', $tabela) : $tabela;
 			$campos = ($campos) ? implode(', ', $campos) : "*";
 			
 			if($argumentos) {
@@ -51,8 +51,8 @@
 			
 			return ($numrows > 0 && sql) ? $dados : false ;
 		}
-		
-		function insert($tabela, $dados, $id = false) {
+
+        static function insert($tabela, $dados, $id = false) {
 			$campos = implode(', ', array_keys($dados));
 			$valores = "'" . implode("', '", $dados) . "'";
 			
@@ -64,8 +64,8 @@
 				return false;
 			}
 		}
-		
-		function update($tabela, $dados, $argumentos = null) {
+
+        static function update($tabela, $dados, $argumentos = null) {
 			
 			// Tratamento dos valores
 			foreach ($dados as $chave => $valor) {
@@ -87,7 +87,7 @@
 			return ($sql) ? mysqli_affected_rows(self::$link) : false;
 		}
 		
-		function delete($tabela, $argumentos = null) {
+		static function delete($tabela, $argumentos = null) {
 			
 			if($argumentos) {
 				foreach ($argumentos as $chave => $valor) {
@@ -101,7 +101,7 @@
 			return ($sql) ? mysqli_affected_rows(self::$link) : false;
 		}
 
-		function getError() {
+		static function getError() {
 		    return mysqli_error(self::$link);
         }
 

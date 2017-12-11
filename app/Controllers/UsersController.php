@@ -5,8 +5,8 @@ use App\Models\User;
 
 class UsersController {
 
-    public function index() { 
-        $users = User::selectAll(); 
+    public function index() {
+        $users = User::selectAll();
 
         \App\View::make('users.index', [ 
             'users' => $users,

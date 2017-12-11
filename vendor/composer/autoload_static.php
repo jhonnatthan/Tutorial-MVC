@@ -8,6 +8,7 @@ class ComposerStaticInit41554a34b1787765b85728e38556eb0b
 {
     public static $files = array (
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
+        '636d559b4905de07b1249f30ebda1e8d' => __DIR__ . '/../..' . '/app/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -27,6 +28,10 @@ class ComposerStaticInit41554a34b1787765b85728e38556eb0b
         'F' => 
         array (
             'FastRoute\\' => 10,
+        ),
+        'A' => 
+        array (
+            'App\\' => 4,
         ),
     );
 
@@ -50,6 +55,10 @@ class ComposerStaticInit41554a34b1787765b85728e38556eb0b
         'FastRoute\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/fast-route/src',
+        ),
+        'App\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/app',
         ),
     );
 

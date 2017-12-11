@@ -11,14 +11,14 @@
     // página inicial
     // listagem de usuários
     $app->get('/', function() {
-        $UsersController = new \App\Controllers\UsersController();
+        $UsersController = new \App\Controllers\UsersController;
         $UsersController->index();
     });
 
     // adição de usuário
     // exibe o formulário de cadastro
     $app->get('/add', function () {
-        $UsersController = new \App\Controllers\UsersController();
+        $UsersController = new \App\Controllers\UsersController;
         $UsersController->create();
     });
 
